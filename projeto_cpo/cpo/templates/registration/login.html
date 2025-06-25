@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <p>
+        <label for="{{ form.username.id_for_label }}">CPF:</label>
+        {{ form.username }}
+    </p>
+    <p>
+        <label for="{{ form.password.id_for_label }}">Senha:</label>
+        {{ form.password }}
+    </p>
+    <button type="submit">Entrar</button>
+</form>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const cpfInput = document.getElementById('cpf');
+    if (!cpfInput) return;
+
+    function formatCPF(value) {
+        value = value.replace(/\D/g, '').slice(0, 11);
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d)/, '$1.$2');
+        value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        return value;
+    }
+
+    cpfInput.addEventListener('input', function (e) {
+        e.target.value = formatCPF(e.target.value);
+    });
+
+    cpfInput.addEventListener('paste', function (e) {
+        e.preventDefault();
+        let pasteData = (e.clipboardData || window.clipboardData).getData('text');
+        cpfInput.value = formatCPF(pasteData);
+    });
+});
+</script>
+</body>
+</html>
