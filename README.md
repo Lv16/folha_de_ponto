@@ -11,14 +11,15 @@ Projeto desenvolvido para controle e registro de ponto eletrônico de colaborado
 
 ## 👨‍💻 Autores
 
-- **Front-End:** Desenvolvido por Lohran Victor
+- **Front-End:** Desenvolvido por Lohran Victor em conjunto com Gabriel de Andrade
 - **Back-End:** Projeto em conjunto com Gabriel de Andrade
 
 ## 🎯 Funcionalidades
 
 - Registro de horários de entrada, saída e intervalos
 - Validação de campos obrigatórios
-- Interface moderna e responsiva (desktop-first)
+- Preenchimento dos campos automáticos
+- Interface moderna (desktop-first)
 - Integração com banco de dados via Django
 - Geração de relatórios/exportação de dados (se aplicável)
 
